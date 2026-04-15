@@ -68,7 +68,7 @@ async function sendCustomerConfirmation({ name, email, date, time, services }) {
     : '';
 
   await resend.emails.send({
-    from:    'Ethos Bookings <onboarding@resend.dev>',   // ← swap to your domain later
+    from:    'Ethos Bookings <bookings@ethospeopleadvisory.com>',   // ← swap to your domain later
     to:      email,
     subject: `Your booking is confirmed — ${formatDate(date)} at ${time}`,
     html: `
@@ -93,7 +93,7 @@ async function sendBusinessAlert({ name, email, date, time, services }) {
   const serviceList = services.length ? services.join(', ') : 'Not specified';
 
   await resend.emails.send({
-    from:    'Ethos Bookings <onboarding@resend.dev>',   // ← swap to your domain later
+    from:    'Ethos Bookings <bookings@ethospeopleadvisory.com>',   // ← swap to your domain later
     to:      process.env.BUSINESS_EMAIL,
     subject: `New booking — ${name} on ${formatDate(date)} at ${time}`,
     html: `
@@ -116,7 +116,7 @@ async function sendBusinessAlert({ name, email, date, time, services }) {
 // 3. 24hr reminder to customer
 async function sendReminder({ name, email, date, time }) {
   await resend.emails.send({
-    from:    'Ethos Bookings <onboarding@resend.dev>',   // ← swap to your domain later
+    from:    'Ethos Bookings <bookings@ethospeopleadvisory.com>',   // ← swap to your domain later
     to:      email,
     subject: `Reminder — your appointment is tomorrow at ${time}`,
     html: `
@@ -138,7 +138,7 @@ async function sendReminder({ name, email, date, time }) {
 // 4. 24hr follow-up to customer
 async function sendFollowUp({ name, email, date, time }) {
   await resend.emails.send({
-    from:    'Ethos Bookings <onboarding@resend.dev>',   // ← swap to your domain later
+    from:    'Ethos Bookings <bookings@ethospeopleadvisory.com>',   // ← swap to your domain later
     to:      email,
     subject: `Thank you for your appointment, ${name}`,
     html: `
